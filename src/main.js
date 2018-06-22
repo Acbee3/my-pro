@@ -5,10 +5,16 @@ import router from './router'
 import './assets/css/global.css'
 // 导入 字体图标的样式表
 import './assets/fonts/iconfont.css'
+// 导入ElementUI组件库
 import ElementUI from 'element-ui'
+// 导入axios组件
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://www.liulongbin.top:8888/api/private/v1/'
 
 Vue.config.productionTip = false
 
+Vue.prototype.$http = axios
 /* eslint-disable no-new */
 
 Vue.use(ElementUI)
