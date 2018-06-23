@@ -1,7 +1,12 @@
 import Vue from 'vue'
+// 导入路由组件
 import Router from 'vue-router'
 // 导入登录组件
 import Login from '@/components/login'
+// 导入后台首页组件
+import Home from '@/components/home'
+// 导入欢迎组件
+import Welcome from '@/components/welcome'
 
 Vue.use(Router)
 
@@ -13,6 +18,15 @@ const router = new Router({
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/welcome', // 只要进入了 home 页面，就立即重定向到 welcome 欢迎页
+    children: [{
+      path: '/welcome',
+      component: Welcome
+    }]
   }
   ]
 })

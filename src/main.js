@@ -10,9 +10,16 @@ import ElementUI from 'element-ui'
 // 导入axios组件
 import axios from 'axios'
 
+Vue.config.productionTip = false
+
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 
-Vue.config.productionTip = false
+// 为axios挂载token请求头，需要使用request拦截器实现
+axios.interceptors.request.use(function(config) {
+  // 手动为 axios 的请求，追加 Authorization 请求头
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 
 Vue.prototype.$http = axios
 /* eslint-disable no-new */
