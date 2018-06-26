@@ -7,6 +7,8 @@ import Login from '@/components/login'
 import Home from '@/components/home'
 // 导入欢迎组件
 import Welcome from '@/components/welcome'
+// 导入用户管理组件
+import Users from '@/components/user/users'
 
 Vue.use(Router)
 
@@ -26,6 +28,9 @@ const router = new Router({
     children: [{
       path: '/welcome',
       component: Welcome
+    }, {
+      path: '/users',
+      component: Users
     }]
   }
   ]

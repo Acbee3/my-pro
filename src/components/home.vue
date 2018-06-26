@@ -34,16 +34,14 @@
               <span>{{item.authName}}</span>
             </template>
             <!-- 循环创建二级菜单 -->
-            <el-menu-item-group>
               <!-- :index 的索引最好不要用 id 点击时可以设置跳转的路由 element-ui 中有一个属性 router 会用到 index -->
-              <el-menu-item
-              :index="'/' + subitem.path"
-              v-for="subitem in item.children"
-              :key="subitem.id">
-                <i class="el-icon-menu"></i>
-                {{subitem.authName}}
-              </el-menu-item>
-            </el-menu-item-group>
+            <el-menu-item
+            :index="'/' + subitem.path"
+            v-for="subitem in item.children"
+            :key="subitem.id">
+              <i class="el-icon-menu"></i>
+              {{subitem.authName}}
+            </el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -121,7 +119,7 @@ export default {
   background-color: #373d41;
   user-select: none;
 
-  .el-menu-item {
+  .el-menu-item-group {
     padding: 0;
   }
 }
